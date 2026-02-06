@@ -5,6 +5,8 @@ build:
     build:
       - npm ci
       - npm run build
+      - cp -r public .next/standalone/public
+      - cp -r .next/static .next/standalone/.next/static
 run:
   command: node .next/standalone/server.js
   network:
@@ -14,3 +16,4 @@ run:
       value: "production"
     - name: HOSTNAME
       value: "0.0.0.0"
+
